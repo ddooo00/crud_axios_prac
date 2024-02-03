@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 function WriteList() {
   const navigate = useNavigate();
 
+  //할 일 추가
   const queryClient = useQueryClient();
   const mutation = useMutation(addTodo, {
     onSuccess: () => {
