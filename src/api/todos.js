@@ -1,27 +1,19 @@
 import axios from "axios";
 
-//할일 목록 가져오기
+//할 일 목록 가져오기
 const getTodo = async () => {
   const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/todos`);
   return response.data;
 };
 
-//할일 추가하기
+//할 일 추가하기
 const addTodo = async (newTodo) => {
   await axios.post(`${process.env.REACT_APP_SERVER_URL}/todos`, newTodo);
 };
 
-//할일 삭제하기
+//할 일 삭제하기
 const deleteTodo = async (postId) => {
   await axios.delete(`${process.env.REACT_APP_SERVER_URL}/todos/${postId}`);
-};
-
-//할일 수정하기
-const editTodo = async (post) => {
-  await axios.patch(
-    `${process.env.REACT_APP_SERVER_URL}/todos/${post.id}}`,
-    post
-  );
 };
 
 //할 일 상세보기
@@ -43,5 +35,13 @@ const detailTodo = async (postId) => {
 //     console.error("Error fetching todo details:", error);
 //   }
 // };
+
+//할 일 수정하기
+const editTodo = async (post) => {
+  await axios.patch(
+    `${process.env.REACT_APP_SERVER_URL}/todos/${post.id}`,
+    post
+  );
+};
 
 export { getTodo, addTodo, deleteTodo, editTodo, detailTodo };
